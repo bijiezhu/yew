@@ -33,6 +33,9 @@ pub struct InputData {
     /// Inserted characters. Contains value from
     /// [InputEvent](https://developer.mozilla.org/en-US/docs/Web/API/InputEvent/data).
     pub value: String,
+    ///inputevent object
+    ///https://docs.rs/web-sys/0.3.41/web_sys/struct.InputEvent.html
+    pub event : InputEvent,
 }
 
 // There is no '.../Web/API/ChangeEvent/data' (for onchange) similar to
@@ -71,19 +74,25 @@ fn oninput_handler(this: &Element) -> InputData {
                     .try_into()
                     .map(|input: TextAreaElement| input.value())
                     .ok(),
+                this.clone()
+                    .try_into()
+                    .map(|event: &InputEvent| event)
+                    .ok(),
             )
         }),
         feature = "web_sys" => ({
             (
                 this.dyn_ref().map(|input: &InputElement| input.value()),
                 this.dyn_ref().map(|input: &TextAreaElement| input.value()),
+                this.dyn_ref().map(|event: &InputEvent| event),
             )
         }),
     };
     let v3 = this.text_content();
     let value = v1.or(v2).or(v3)
         .expect("only an InputElement or TextAreaElement or an element with contenteditable=true can have an oninput event listener");
-    InputData { value }
+    let event = v4.expect("this need to be Inputevent").clone();
+    InputData { value, event }
 }
 
 fn onchange_handler(this: &Element) -> ChangeData {
