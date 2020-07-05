@@ -3,6 +3,8 @@ mod macros;
 
 use cfg_if::cfg_if;
 use cfg_match::cfg_match;
+use web_sys::InputEvent;
+
 
 cfg_if! {
     if #[cfg(feature = "std_web")] {
@@ -12,7 +14,7 @@ cfg_if! {
         use stdweb::unstable::{TryFrom, TryInto};
         use stdweb::web::html_element::{InputElement, SelectElement, TextAreaElement};
         use stdweb::web::{Element, EventListenerHandle, FileList, IElement, INode};
-
+        use stdweb::web::event::InputEvent;
         pub use listener_stdweb::*;
     } else if #[cfg(feature = "web_sys")] {
         mod listener_web_sys;
@@ -20,9 +22,9 @@ cfg_if! {
         use wasm_bindgen::JsCast;
         use web_sys::{
             Element, FileList, HtmlInputElement as InputElement, HtmlSelectElement as SelectElement,
-            HtmlTextAreaElement as TextAreaElement,
+            HtmlTextAreaElement as TextAreaElement
         };
-
+        //use web_sys::InputEvent;
         pub use listener_web_sys::*;
     }
 }
@@ -63,7 +65,7 @@ fn oninput_handler(this: &Element) -> InputData {
     // practice though any element with `contenteditable=true` may generate such events,
     // therefore here we fall back to just returning the text content of the node.
     // See https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event.
-    let (v1, v2) = cfg_match! {
+    let (v1, v2, v4) = cfg_match! {
         feature = "std_web" => ({
             (
                 this.clone()
