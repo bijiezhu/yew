@@ -3,7 +3,6 @@ mod macros;
 
 use cfg_if::cfg_if;
 use cfg_match::cfg_match;
-use web_sys::InputEvent;
 
 
 cfg_if! {
@@ -24,7 +23,7 @@ cfg_if! {
             Element, FileList, HtmlInputElement as InputElement, HtmlSelectElement as SelectElement,
             HtmlTextAreaElement as TextAreaElement
         };
-        //use web_sys::InputEvent;
+        use web_sys::InputEvent;
         pub use listener_web_sys::*;
     }
 }
