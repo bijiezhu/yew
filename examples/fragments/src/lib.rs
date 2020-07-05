@@ -23,11 +23,11 @@ impl Component for Model {
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::More => {
-                self.counter = self.counter + 1;
+                self.counter += 1;
             }
             Msg::Less => {
                 if self.counter > 0 {
-                    self.counter = self.counter - 1;
+                    self.counter -= 1;
                 }
             }
         }
@@ -44,7 +44,7 @@ impl Component for Model {
                 <nav class="menu">{ self.view_menu() }</nav>
                 <table>
                     <tr>
-                        // Important! All columns have contain the same elements
+                        // Important! All columns have to contain the same elements
                         { self.view_cols() }
                         <td>{ "- - - >" }</td>
                         { self.view_cols() }
@@ -59,13 +59,13 @@ impl Component for Model {
 
 impl Model {
     fn view_cols(&self) -> Html {
-        let render = |idx| {
+        let render_func = |idx| {
             html! {
                 <td>{ idx }</td>
             }
         };
         html! { // We use a fragment directly
-            { for (0..self.counter).map(render) }
+            { for (0..self.counter).map(render_func) }
         }
     }
 

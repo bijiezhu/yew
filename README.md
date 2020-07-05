@@ -10,18 +10,19 @@
   <p>
     <a href="https://crates.io/crates/yew"><img alt="Crate Info" src="https://img.shields.io/crates/v/yew.svg"/></a>
     <a href="https://docs.rs/yew/"><img alt="API Docs" src="https://img.shields.io/badge/docs.rs-yew-green"/></a>
-    <a href="https://discord.gg/wWTVEZ"><img alt="Discord Chat" src="https://img.shields.io/discord/701068342760570933"/></a>
-    <a href="https://blog.rust-lang.org/2019/11/07/Rust-1.39.0.html"><img alt="Rustc Version 1.39+" src="https://img.shields.io/badge/rustc-1.39+-lightgray.svg"/></a>
+    <a href="https://discord.gg/VQck8X4"><img alt="Discord Chat" src="https://img.shields.io/discord/701068342760570933"/></a>
+    <a href="https://blog.rust-lang.org/2020/03/12/Rust-1.42.html"><img alt="Rustc Version 1.42+" src="https://img.shields.io/badge/rustc-1.42%2B-lightgrey.svg"/></a>
+    <a href="https://github.com/jetli/awesome-yew"><img alt="Yew Awesome" src="https://raw.githubusercontent.com/sindresorhus/awesome/master/media/badge.svg"/></a>
   </p>
 
   <h4>
     <a href="https://yew.rs/docs">Documentation</a>
     <span> | </span>
-    <a href="https://github.com/yewstack/yew/tree/v0.14.0/examples">Examples</a>
+    <a href="https://github.com/yewstack/yew/tree/v0.17/examples">Examples</a>
     <span> | </span>
     <a href="https://github.com/yewstack/yew/blob/master/CHANGELOG.md">Changelog</a>
     <span> | </span>
-    <a href="https://yew.rs/docs/roadmap">Roadmap</a>
+    <a href="https://yew.rs/docs/more/roadmap">Roadmap</a>
     <span> | </span>
     <a href="https://yew.rs/docs/v/zh_cn/">简体中文文档</a>
     <span> | </span>
@@ -37,7 +38,7 @@
 * Achieves high performance by minimizing DOM API calls for each page render and by making it easy to offload processing to background web workers.
 * Supports JavaScript interoperability, allowing developers to leverage NPM packages and integrate with existing JavaScript applications.
 
-*Note: Yew is not (yet) production ready but is great for side projects and internal tools*
+*Note: Yew is not (yet) production ready but is great for side projects and internal tools.*
 
 ## Contributing
 
@@ -47,13 +48,22 @@ Yew is a community effort and we welcome all kinds of contributions, big or smal
 
 Start learning about the framework by helping us improve our [Documentation](https://github.com/yewstack/docs). Pull requests which improve test coverage are also very welcome.
 
+#### 😎 Looking for inspiration?
+
+Check out the community curated list of awesome things related to Yew / WebAssembly at [jetli/awesome-yew](https://github.com/jetli/awesome-yew).
+
 #### 🤔 Confused about something?
 
-Feel free to drop into our [Gitter chatroom](https://gitter.im/yewframework/Lobby) or open a [new "Question" issue](https://github.com/yewstack/yew/issues/new/choose) to get help from contributors. Oftentimes questions lead to improvements to the ergonomics of the framework, better documentation, and even new features!
+Feel free to drop into our [Discord chatroom](https://discord.gg/VQck8X4) or open a [new "Question" issue](https://github.com/yewstack/yew/issues/new/choose) to get help from contributors. Often questions lead to improvements to the ergonomics of the framework, better documentation, and even new features!
 
 #### 🙂 Ready to dive into the code?
 
 After reviewing the [Contribution Guide](CONTRIBUTING.md), check out the ["Good First Issues"](https://github.com/yewstack/yew/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) (they are eager for attention!). Once you find one that interests you, feel free to assign yourself to an issue and don't hesitate to reach out for guidance, the issues vary in complexity.
+
+#### 🤑 Let's help each other!
+
+Come help us on the [issues that matter that the most](https://github.com/yewstack/yew/labels/%3Adollar%3A%20Funded%20on%20Issuehunt) and receive a small cash reward for your troubles. We use [Issuehunt](https://issuehunt.io/r/yewstack/yew/) to fund issues from our Open Collective funds. If you really care about an issue, you can choose to add funds yourself! 
+
 
 #### 😱 Found a bug?
 

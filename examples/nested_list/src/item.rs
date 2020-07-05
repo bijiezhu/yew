@@ -6,7 +6,7 @@ pub struct ListItem {
     props: Props,
 }
 
-#[derive(Clone, Properties)]
+#[derive(PartialEq, Clone, Properties)]
 pub struct Props {
     #[prop_or_default]
     pub hide: bool,
@@ -22,6 +22,15 @@ impl Component for ListItem {
 
     fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
         ListItem { props }
+    }
+
+    fn change(&mut self, props: Self::Properties) -> bool {
+        if self.props != props {
+            self.props = props;
+            true
+        } else {
+            false
+        }
     }
 
     fn update(&mut self, _msg: Self::Message) -> ShouldRender {
@@ -51,7 +60,7 @@ impl ListItem {
 
         html! {
             <div class="list-item-details">
-                { self.props.children.render() }
+                { self.props.children.clone() }
             </div>
         }
     }
